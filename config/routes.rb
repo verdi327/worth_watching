@@ -1,4 +1,8 @@
 WorthWatching::Application.routes.draw do
+  root to:"videos#index"
+  resources :videos
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
