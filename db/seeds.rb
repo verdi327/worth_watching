@@ -53,9 +53,5 @@ VideoTag.create(video_id: videoB.id, tag_id: (Tag.create(name: tag2).id) )
 VideoTag.create(video_id: videoC.id, tag_id: (Tag.create(name: tag3).id) )
 VideoTag.create(video_id: videoD.id, tag_id: (Tag.create(name: tag4).id) )
 VideoTag.create(video_id: videoE.id, tag_id: (Tag.create(name: tag5).id) )
-VideoTag.create(video_id: videoA.id, tag_id: (Tag.create(name: tag1).id) )
-VideoTag.create(video_id: videoB.id, tag_id: (Tag.create(name: tag2).id) )
-VideoTag.create(video_id: videoC.id, tag_id: (Tag.create(name: tag3).id) )
-VideoTag.create(video_id: videoD.id, tag_id: (Tag.create(name: tag4).id) )
-VideoTag.create(video_id: videoC.id, tag_id: (Tag.create(name: tag5).id) )
+
 

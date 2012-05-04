@@ -5,7 +5,7 @@ class Tag < ActiveRecord::Base
   attr_accessible :name
 
   def self.get_tag_name
-    Tag.all.map(&:name).map {|tag| tag.strip!}.compact!
+    Tag.all.map(&:name).map {|tag| tag.strip}.compact
   end
 
   def self.order_into_hash
@@ -20,13 +20,13 @@ class Tag < ActiveRecord::Base
     hash
   end
 
-  def self.top_five
+  def self.top_five_names
     desc_list = Tag.order_into_hash.sort_by {|tag, count| count}.reverse
     desc_list[0..4].map {|tag| tag[0]}
   end
 
-  def self.find_tag_objects
-    tag_names = Tag.top_five
+  def self.top_five_tags
+    tag_names = Tag.top_five_names
     tag_names.map do |tag|
       Tag.find_by_name(tag)
     end
