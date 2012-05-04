@@ -1,10 +1,10 @@
 WorthWatching::Application.routes.draw do
-  resources :tags
-
-  resources :categories
-
   root to:"videos#index"
+  resources :tags
+  resources :categories
   resources :videos
+  resources :playlists
+
 
 
   # The priority is based upon order of creation:

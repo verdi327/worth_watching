@@ -1,10 +1,11 @@
-h1 Listing videos
+h1 Worth Watching Home Page
 - @categories.each do |cat|
   = link_to cat.name, category_path(cat)
 = paginate @videos
-h2 Top Tags
-- @tags.each do |tag|
-  = link_to tag.name, tag_path(tag) unless tag.nil?
+- unless @tags.size == 0
+  h2 Top Tags
+  - @tags.each do |tag|
+    = link_to tag.name, tag_path(tag) unless tag.nil?
 ul
   - @videos.each do |video|
     - if video.embed.nil?
@@ -14,6 +15,7 @@ ul
         = link_to(image_tag(video.thumbnail), video.url)
     - else
       li = video.embed
+    li = link_to "Watch Later", playlists_path(video_id: video.id), method: :post
     li = link_to 'Show', video
     li = link_to 'Edit', edit_video_path(video)
     li = link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete

@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
   has_many :categories, through: :video_categorizations
   has_many :video_tags, dependent: :destroy
   has_many :tags, through: :video_tags
+  has_many :playlists, dependent: :destroy
   attr_writer :tag_names
   after_save :assign_tags
 
