@@ -9,12 +9,12 @@ class Video < ActiveRecord::Base
   attr_accessible :url, :user_id, :category_ids, :tag_names
 
   def tag_names
-    @tag_names || tags.map(&:name).join(', ')
+    @tag_names || tags.map(&:name).join(' ')
   end
 
   def assign_tags
     if @tag_names
-      self.tags = @tag_names.split(",").map do |name|
+      self.tags = @tag_names.split(/\s+/).map do |name|
         Tag.find_or_create_by_name(name)
       end
     end

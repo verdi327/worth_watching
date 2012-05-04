@@ -4,6 +4,7 @@ class VideosController < ApplicationController
   def index
     @videos = Video.order("id").page(params[:page]).per(5)
     @categories = Category.all
+    @tags = Tag.find_tag_objects
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,6 +2,9 @@ h1 Listing videos
 - @categories.each do |cat|
   = link_to cat.name, category_path(cat)
 = paginate @videos
+h2 Top Tags
+- @tags.each do |tag|
+  = link_to tag.name, tag_path(tag) unless tag.nil?
 ul
   - @videos.each do |video|
     - if video.embed.nil?
