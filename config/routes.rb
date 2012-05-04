@@ -1,4 +1,6 @@
 WorthWatching::Application.routes.draw do
+  resources :categories
+
   root to:"videos#index"
   resources :videos
 

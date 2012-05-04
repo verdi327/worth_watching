@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails'
-gem "acts_as_unvlogable"
+gem 'embedly'
+gem 'simple_form'
 
 
 # Bundle edge Rails instead:

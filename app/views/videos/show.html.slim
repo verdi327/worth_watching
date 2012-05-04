@@ -1,14 +1,9 @@
 p#notice = notice
 
 p
-  strong Title:
-  = @video.title
-p
   strong Url:
   = @video.url
-p
-  strong User:
-  = @video.user_id
+
 
 = link_to 'Edit', edit_video_path(@video)
 '|

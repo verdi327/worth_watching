@@ -1,12 +1,10 @@
 h1 Listing videos
 ul
   - @videos.each do |video|
-    - if @video.title.nil?
-      li = video.title
-      li = link_to("Watch Here", video.url)
+    - if video.embed.nil?
+      = link_to(image_tag(video.thumbnail), video.url)
     - else
-      li = @video.title
-      li = @video.thumbnail
+      li = video.embed
     li = link_to 'Show', video
     li = link_to 'Edit', edit_video_path(video)
     li = link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete
