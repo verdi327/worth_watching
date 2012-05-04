@@ -1,10 +1,17 @@
 class Video < ActiveRecord::Base
-  attr_accessible :url, :user_id
+  has_many :video_categorizations
+  has_many :categories, through: :video_categorizations
+  attr_accessible :url, :user_id, :category_ids
+
 
   def embedly_response
     api = Embedly::API.new(key: EMBEDLY_KEY)
     obj = api.oembed(url: self.url)
     obj.first
+  end
+
+  def host
+    embedly_response.provider_name
   end
 
   def embed

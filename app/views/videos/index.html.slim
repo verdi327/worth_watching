@@ -2,7 +2,10 @@ h1 Listing videos
 ul
   - @videos.each do |video|
     - if video.embed.nil?
-      = link_to(image_tag(video.thumbnail), video.url)
+      - if video.thumbnail.nil?
+        = link_to "Watch on #{video.host}", video.url
+      - else
+        = link_to(image_tag(video.thumbnail), video.url)
     - else
       li = video.embed
     li = link_to 'Show', video

@@ -5,6 +5,7 @@ gem 'slim-rails'
 gem 'twitter-bootstrap-rails'
 gem 'embedly'
 gem 'simple_form'
+gem 'kaminari'
 
 
 # Bundle edge Rails instead:

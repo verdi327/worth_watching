@@ -24,3 +24,17 @@ Video.create(url: video5)
 Video.create(url: video6)
 Video.create(url: video7)
 
+Category.destroy_all
+
+category1 = "Design"
+category2 = "Development"
+category3 = "Life"
+category4 = "User Experience"
+category5 = "Business"
+
+Category.create(name: category1)
+Category.create(name: category2)
+Category.create(name: category3)
+Category.create(name: category4)
+Category.create(name: category5)
+
