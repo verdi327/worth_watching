@@ -1,8 +1,24 @@
 class Video < ActiveRecord::Base
   has_many :video_categorizations
   has_many :categories, through: :video_categorizations
-  attr_accessible :url, :user_id, :category_ids
+  has_many :video_tags, dependent: :destroy
+  has_many :tags, through: :video_tags
+  attr_writer :tag_names
+  after_save :assign_tags
 
+  attr_accessible :url, :user_id, :category_ids, :tag_names
+
+  def tag_names
+    @tag_names || tags.map(&:name).join(', ')
+  end
+
+  def assign_tags
+    if @tag_names
+      self.tags = @tag_names.split(",").map do |name|
+        Tag.find_or_create_by_name(name)
+      end
+    end
+  end
 
   def embedly_response
     api = Embedly::API.new(key: EMBEDLY_KEY)
