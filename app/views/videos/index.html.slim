@@ -1,4 +1,6 @@
 h1 Listing videos
+- @categories.each do |cat|
+  = link_to cat.name, category_path(cat)
 = paginate @videos
 ul
   - @videos.each do |video|

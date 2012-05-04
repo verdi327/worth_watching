@@ -3,6 +3,7 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     @videos = Video.order("id").page(params[:page]).per(5)
+    @categories = Category.all
 
     respond_to do |format|
       format.html # index.html.erb
