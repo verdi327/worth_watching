@@ -15,7 +15,8 @@ ul
         = link_to(image_tag(video.thumbnail), video.url)
     - else
       li = video.embed
-    li = link_to "Watch Later", playlists_path(video_id: video.id), method: :post
+    - unless current_user.nil?
+      li = link_to "Watch Later", playlists_path(video_id: video.id, user_id: current_user.id), method: :post
     li = link_to 'Show', video
     li = link_to 'Edit', edit_video_path(video)
     li = link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete

@@ -1,2 +1,8 @@
-h1 Sessions#new
-p Find me in app/views/sessions/new.html.slim
+h1 Sign In
+
+= form_tag sessions_create_path do
+  - label_tag :email
+  = text_field_tag :email
+  - label_tag :password
+  = password_field_tag :password
+  = submit_tag "Sign In"

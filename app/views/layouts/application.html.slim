@@ -1,0 +1,17 @@
+DOCTYPE
+html
+  head
+    title WorthWatching
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  body
+    - if logged_in?
+      p = link_to "sign out", sessions_destroy_path, method: :delete
+      p = link_to 'my account', user_path(current_user)
+    - else
+      = link_to 'sign in', sessions_new_path
+
+  = yield
+

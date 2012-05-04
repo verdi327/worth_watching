@@ -1,5 +1,11 @@
 WorthWatching::Application.routes.draw do
   root to:"videos#index"
+
+  get "sessions/new"
+  post "sessions/create"
+  delete "sessions/destroy"
+
+  resources :users
   resources :tags
   resources :categories
   resources :videos

@@ -6,6 +6,7 @@ gem 'twitter-bootstrap-rails'
 gem 'embedly'
 gem 'simple_form'
 gem 'kaminari'
+gem 'bcrypt-ruby'
 
 
 # Bundle edge Rails instead:
