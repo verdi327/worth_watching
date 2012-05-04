@@ -16,13 +16,13 @@ video5 = "http://www.ted.com/talks/brene_brown_on_vulnerability.html"
 video6 = "http://www.ted.com/talks/keith_barry_does_brain_magic.html"
 video7 = "http://www.youtube.com/watch?v=xk3UcgbbmxQ"
 
-Video.create(url: video1)
-Video.create(url: video2)
-Video.create(url: video3)
-Video.create(url: video4)
-Video.create(url: video5)
-Video.create(url: video6)
-Video.create(url: video7)
+videoA = Video.create(url: video1)
+videoB = Video.create(url: video2)
+videoC = Video.create(url: video3)
+videoD = Video.create(url: video4)
+videoE = Video.create(url: video5)
+videoF = Video.create(url: video6)
+videoG = Video.create(url: video7)
 
 Category.destroy_all
 
@@ -37,4 +37,25 @@ Category.create(name: category2)
 Category.create(name: category3)
 Category.create(name: category4)
 Category.create(name: category5)
+
+Tag.destroy_all
+
+tag1 = "funny"
+tag2 = "inspiring"
+tag3 = "hot"
+tag4 = "motivating"
+tag5 = "smart"
+
+VideoTag.destroy_all
+
+VideoTag.create(video_id: videoA.id, tag_id: (Tag.create(name: tag1).id) )
+VideoTag.create(video_id: videoB.id, tag_id: (Tag.create(name: tag2).id) )
+VideoTag.create(video_id: videoC.id, tag_id: (Tag.create(name: tag3).id) )
+VideoTag.create(video_id: videoD.id, tag_id: (Tag.create(name: tag4).id) )
+VideoTag.create(video_id: videoE.id, tag_id: (Tag.create(name: tag5).id) )
+VideoTag.create(video_id: videoA.id, tag_id: (Tag.create(name: tag1).id) )
+VideoTag.create(video_id: videoB.id, tag_id: (Tag.create(name: tag2).id) )
+VideoTag.create(video_id: videoC.id, tag_id: (Tag.create(name: tag3).id) )
+VideoTag.create(video_id: videoD.id, tag_id: (Tag.create(name: tag4).id) )
+VideoTag.create(video_id: videoC.id, tag_id: (Tag.create(name: tag5).id) )
 
